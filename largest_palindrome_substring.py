@@ -18,28 +18,36 @@ output = ''
 case5
 input = 'abc'
 output = 'a' // also can be 'b' or 'c'
-"""
-def is_palindrome(s):
-    return s == s[::-1]
-    
 
-def get_large_palindrome_substring(s):
-    ss1 = ''
+case6
+input = 'cabak'
+output = 'aba'
+"""
+
+def is_palindrome(s):
+    """Check if a string is a palindrome."""
+    return s == s[::-1]
+
+def get_largest_palindrome_substring(s):
+    """Find the largest palindrome substring in a given string."""
+    largest_palindrome = ""
+    
+    # Iterate over all possible substrings
     for i in range(len(s)):
-        ss = s[i:]
-        if is_palindrome(ss):
-            ss1 = ss
-            break
-    
-    
-    ss2 = ''
-    sr = s[::-1]
-    for i in range(len(sr)):
-        ss = sr[i:]
-        if is_palindrome(ss):
-            ss2 = ss
-            break
-    return ss1 if len(ss1)>len(ss2) else ss2
+        for j in range(i + 1, len(s) + 1):
+            substring = s[i:j]
+            
+            # Check if the substring is a palindrome
+            if is_palindrome(substring):
+                # Update the largest palindrome if necessary
+                if len(substring) > len(largest_palindrome):
+                    largest_palindrome = substring
+                    
+    return largest_palindrome
+
+if __name__ == '__main__':
+    s = 'cabak'
+    print(get_largest_palindrome_substring(s))
 
 
 if __name__ == '__main__':
