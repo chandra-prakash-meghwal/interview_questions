@@ -5,6 +5,8 @@ You may assume that each input would have exactly one solution, and you may not 
 Example 1: Input: nums = [2,7,11,15], target = 9 Output: [0,1]
  
 Input: nums = [3,2,4], target = 6
+
+## also check another solution at https://github.com/chandra-prakash-meghwal/leetcode/blob/master/two_sum.py
 """
 
 def find_sum(nums, target):
